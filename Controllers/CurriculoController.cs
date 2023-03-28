@@ -29,6 +29,8 @@ namespace CadastroCurriculos.Controllers
             try
             {
                 CurriculoViewModel curriculo = new CurriculoViewModel();
+                CurriculoDAO dao = new CurriculoDAO();
+                curriculo.Curriculo_id = dao.ProximoId();
                 return View("Form", curriculo);
             }
             catch (Exception erro)
@@ -42,6 +44,9 @@ namespace CadastroCurriculos.Controllers
             try
             {
                 CurriculoDAO dao = new CurriculoDAO();
+                curriculo.Curriculo_id = dao.ProximoId();
+                curriculo.Nivel_ingles = Request.Form["NivelIngles"];
+                curriculo.Nivel_espanhol = Request.Form["NivelEspanhol"];
                 dao.Insert(curriculo);
                 return RedirectToAction("index");
             }
@@ -50,6 +55,24 @@ namespace CadastroCurriculos.Controllers
                 return View("Error", new ErrorViewModel(erro.ToString()));
             }
 
+        }
+        public IActionResult Edit(int id)
+        {
+            try
+            {
+                ViewBag.Operacao = "A";
+                CurriculoDAO dao = new CurriculoDAO();
+                CurriculoViewModel curriculo = dao.ConsultaId(id);
+                if (curriculo == null)
+                    return RedirectToAction("index");
+                else
+                    return View("Form", curriculo);
+            }
+            catch (Exception erro)
+            {
+                return View("error",
+                    new ErrorViewModel(erro.ToString()));
+            }
         }
     }
 }
