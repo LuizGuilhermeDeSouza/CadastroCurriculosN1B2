@@ -48,7 +48,7 @@ namespace CadastroCurriculos.DAO
                          "formacao_academica_2 = @formacao_academica_2, formacao_academica_3 = @formacao_academica_3, formacao_academica_4 = @formacao_academica_4, " +
                          "formacao_academica_5 = @formacao_academica_5, experiencia_profissional_1 = @experiencia_profissional_1, " +
                          "experiencia_profissional_2 = @experiencia_profissional_2, experiencia_profissional_3 = @experiencia_profissional_3, " +
-                         "nivel_ingles = @nivel_ingles, nivel_espanhol = @nivel_espanhol" +
+                         "nivel_ingles = @nivel_ingles, nivel_espanhol = @nivel_espanhol " +
                          "where curriculo_id = @curriculo_id";
             HelperDAO.ExecutaSQL(sql, CreateParameters(curriculo));
         }
