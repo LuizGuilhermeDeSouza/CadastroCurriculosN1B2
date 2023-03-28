@@ -1,4 +1,5 @@
-﻿@model CurriculoViewModel
+﻿@using System.Text;
+@model CurriculoViewModel
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -53,32 +54,21 @@
         <div>
             <h3>Formação acadêmica e cursos</h3>
             <br />
-
-            @for (int n = 0; n < 5; n++)
-            {
-
-                <h5>Formação @n</h5>
-                <br />
-
-                <label class="control-label">Tipo de Formação</label>
-                <input class="form-control" type="text" Name="TipoFormacao_@n" placeholder="Digite o tipo de sua formação" />
-                <br />
-
-                <label class="control-label">Curso</label>
-                <input class="form-control" type="text" Name="Curso_@n" placeholder="Digite o curso" />
-                <br />
-
-                <label class="control-label">Data de Início</label>
-                <input class="form-control" type="date" name="DataInicio_@n" />
-                <br />
-
-                <label class="control-label">Data de Conclusão</label>
-                <input class="form-control" type="date" name="DataConclusao_@n" />
-                <br />
-
-                <br />
-                <br />
-            }
+            <label for="formacao_academica_1" class="control-label">Formação acadêmica 1</label>
+                    <input class="form-control" type="text" Name="formacao_academica_1" value="@Model.Formacao_academica_1" placeholder="Digite a primeira formação acadêmica" />
+            <br />
+            <label for="formacao_academica_2" class="control-label">Formação acadêmica 2</label>
+            <input class="form-control" type="text" Name="formacao_academica_2" value="@Model.Formacao_academica_2" placeholder="Digite a segunda formação acadêmica" />
+            <br />
+            <label for="formacao_academica_3" class="control-label">Formação acadêmica 3</label>
+            <input class="form-control" type="text" Name="formacao_academica_3" value="@Model.Formacao_academica_3" placeholder="Digite a terceira formação acadêmica" />
+            <br />
+            <label for="formacao_academica_4" class="control-label">Formação acadêmica 4</label>
+            <input class="form-control" type="text" Name="formacao_academica_4" value="@Model.Formacao_academica_4" placeholder="Digite a quarta formação acadêmica" />
+            <br />
+            <label for="formacao_academica_5" class="control-label">Formação acadêmica 5</label>
+            <input class="form-control" type="text" Name="formacao_academica_5" value="@Model.Formacao_academica_5" placeholder="Digite a quinta formação acadêmica" />
+            <br />
         </div>
 
         <br />
@@ -87,32 +77,26 @@
         <div>
             <h3>Experiências Profissionais</h3>
             <br />
+            <h3>Cite as 3 últimas ou menos</h3>
+            
 
-            @for (int n = 0; n < 3; n++)
-            {
-
-                <h5>Experiência Profissional @n</h5>
+                <h5>Experiência Profissional </h5>
                 <br />
 
-                <label class="control-label">Empresa</label>
-                <input class="form-control" type="text" Name="Empresa_@n" placeholder="Digite a empresa em que você trabalhou" />
+            <label class="control-label">Experiencia Profissional 1</label>
+            <input class="form-control" type="text" Name="experiencia_profissional_1" value="@Model.Experiencia_profissional_1" placeholder="Digite sua última experiência profissional" />
                 <br />
 
-                <label class="control-label">Cargo</label>
-                <input class="form-control" type="text" Name="Cargo_@n" placeholder="Digite o seu cargo nesta empresa" />
-                <br />
+            <label class="control-label">Experiencia Profissional 2</label>
+            <input class="form-control" type="text" Name="experiencia_profissional_2" value="@Model.Experiencia_profissional_2" placeholder="Digite sua penúltima experiência profissional" />
+            <br />
 
-                <label class="control-label">Data de Início</label>
-                <input class="form-control" type="date" name="DataInicio_@n" />
-                <br />
-
-                <label class="control-label">Data de Término</label>
-                <input class="form-control" type="date" name="DataTermino_@n" />
-                <br />
-
-                <br />
-                <br />
-            }
+            <label class="control-label">Experiencia Profissional 3</label>
+            <input class="form-control" type="text" Name="experiencia_profissional_3" value="@Model.Experiencia_profissional_3" placeholder="Digite sua antepenúltima experiência profissional" />
+            <br />
+            <br />
+            <br />
+          
         </div>
 
         <div>
@@ -124,27 +108,22 @@
             <br />
 
             <label class="control-label">Inglês:</label>
-            <select name="NivelIngles">
-                <option value="1" selected>Básico</option>
-                <option value="2">Intermediário</option>
-                <option value="3">Avançado</option>
+            <select name="NivelIngles" value="@Model.Nivel_ingles">
+                <option value="Básico" selected>Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
             </select>
 
             <br />
             <br />
 
             <label class="control-label">Espanhol:</label>
-            <select id="NivelEspanhol" name="NivelEspanhol">
-                <option value="1" selected>Básico</option>
-                <option value="2">Intermediário</option>
-                <option value="3">Avançado</option>
+            <select id="NivelEspanhol" name="NivelEspanhol" >
+                <option value="Básico" selected>Básico</option>
+                <option value="Intermediário">Intermediário</option>
+                <option value="Avançado">Avançado</option>
             </select>
-
             <br />
-
-            @{ 
-                
-            }
         </div>
 
     </div>

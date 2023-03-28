@@ -55,7 +55,7 @@ namespace CadastroCurriculos.DAO
 
         public int ProximoId()
         {
-            string sql = "select isnull(max(id) +1, 1) as 'MAIOR' from curriculos";
+            string sql = "select isnull(max(curriculo_id) +1, 1) as 'MAIOR' from curriculos";
             DataTable table = HelperDAO.ExecutaSelect(sql, null);
             return Convert.ToInt32(table.Rows[0]["MAIOR"]);
         }
@@ -65,43 +65,8 @@ namespace CadastroCurriculos.DAO
             List<CurriculoViewModel> curriculos = new List<CurriculoViewModel>();
 
             foreach (DataRow row in table.Rows)
-            {
-                CurriculoViewModel tempCurriculo = new CurriculoViewModel();
-
-                tempCurriculo.Curriculo_id = Convert.ToInt32(row["curriculo_id"]);
-                tempCurriculo.Cpf = Convert.ToString(row["cpf"]);
-                tempCurriculo.Nome = Convert.ToString(row["nome"]);
-                tempCurriculo.Telefone = Convert.ToString(row["telefone"]);
-                tempCurriculo.Endereco = Convert.ToString(row["endereco"]);
-                tempCurriculo.Email = Convert.ToString(row["email"]);
-                tempCurriculo.Pretencao_salarial = Convert.ToDouble(row["pretencao_salarial"]);
-                tempCurriculo.Cargo_pretendido = Convert.ToString(row["cargo_pretendido"]);
-                tempCurriculo.Formacao_academica_1 = Convert.ToString(row["formacao_academica_1"]);
-
-                if(row["formacao_academica_2"] != DBNull.Value)
-                    tempCurriculo.Formacao_academica_2 = Convert.ToString(row["formacao_academica_2"]);
-
-                if (row["formacao_academica_3"] != DBNull.Value)
-                    tempCurriculo.Formacao_academica_3 = Convert.ToString(row["formacao_academica_3"]);
-
-                if (row["formacao_academica_4"] != DBNull.Value)
-                    tempCurriculo.Formacao_academica_4 = Convert.ToString(row["formacao_academica_4"]);
-
-                if (row["formacao_academica_5"] != DBNull.Value)
-                    tempCurriculo.Formacao_academica_5 = Convert.ToString(row["formacao_academica_5"]);
-
-                tempCurriculo.Experiencia_profissional_1 = Convert.ToString(row["experiencia_profissional_1"]);
-
-                if (row["experiencia_profissional_2"] != DBNull.Value)
-                    tempCurriculo.Experiencia_profissional_2 = Convert.ToString(row["experiencia_profissional_2"]);
-
-                if (row["experiencia_profissional_3"] != DBNull.Value)
-                    tempCurriculo.Experiencia_profissional_3 = Convert.ToString(row["experiencia_profissional_3"]);
-
-                tempCurriculo.Nivel_ingles = Convert.ToString(row["nivel_ingles"]);
-                tempCurriculo.Nivel_espanhol = Convert.ToString(row["nivel_espanhol"]);
-
-                curriculos.Add(tempCurriculo);
+            { 
+                curriculos.Add(buildRow(row));
             }
 
             return curriculos;
@@ -157,6 +122,54 @@ namespace CadastroCurriculos.DAO
             parametros[17] = new SqlParameter("nivel_espanhol", curriculo.Nivel_espanhol);
 
             return parametros;
+        }
+        public CurriculoViewModel ConsultaId(int id)
+        {
+            string sql = "select * from curriculos where curriculo_id =" + id;
+            DataTable tabela = HelperDAO.ExecutaSelect(sql, null);
+
+            if (tabela.Rows.Count == 0)
+                return null;
+            else
+                return buildRow(tabela.Rows[0]);
+        }
+        public CurriculoViewModel buildRow(DataRow row)
+        {
+            CurriculoViewModel tempCurriculo = new CurriculoViewModel();
+
+            tempCurriculo.Curriculo_id = Convert.ToInt32(row["curriculo_id"]);
+            tempCurriculo.Cpf = Convert.ToString(row["cpf"]);
+            tempCurriculo.Nome = Convert.ToString(row["nome"]);
+            tempCurriculo.Telefone = Convert.ToString(row["telefone"]);
+            tempCurriculo.Endereco = Convert.ToString(row["endereco"]);
+            tempCurriculo.Email = Convert.ToString(row["email"]);
+            tempCurriculo.Pretencao_salarial = Convert.ToDouble(row["pretencao_salarial"]);
+            tempCurriculo.Cargo_pretendido = Convert.ToString(row["cargo_pretendido"]);
+            tempCurriculo.Formacao_academica_1 = Convert.ToString(row["formacao_academica_1"]);
+
+            if (row["formacao_academica_2"] != DBNull.Value)
+                tempCurriculo.Formacao_academica_2 = Convert.ToString(row["formacao_academica_2"]);
+
+            if (row["formacao_academica_3"] != DBNull.Value)
+                tempCurriculo.Formacao_academica_3 = Convert.ToString(row["formacao_academica_3"]);
+
+            if (row["formacao_academica_4"] != DBNull.Value)
+                tempCurriculo.Formacao_academica_4 = Convert.ToString(row["formacao_academica_4"]);
+
+            if (row["formacao_academica_5"] != DBNull.Value)
+                tempCurriculo.Formacao_academica_5 = Convert.ToString(row["formacao_academica_5"]);
+
+            tempCurriculo.Experiencia_profissional_1 = Convert.ToString(row["experiencia_profissional_1"]);
+
+            if (row["experiencia_profissional_2"] != DBNull.Value)
+                tempCurriculo.Experiencia_profissional_2 = Convert.ToString(row["experiencia_profissional_2"]);
+
+            if (row["experiencia_profissional_3"] != DBNull.Value)
+                tempCurriculo.Experiencia_profissional_3 = Convert.ToString(row["experiencia_profissional_3"]);
+
+            tempCurriculo.Nivel_ingles = Convert.ToString(row["nivel_ingles"]);
+            tempCurriculo.Nivel_espanhol = Convert.ToString(row["nivel_espanhol"]);
+            return tempCurriculo;
         }
     }
 

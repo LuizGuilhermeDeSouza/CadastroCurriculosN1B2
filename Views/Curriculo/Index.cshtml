@@ -22,7 +22,10 @@
         @foreach (CurriculoViewModel curriculo in Model)
         {
             <tr>
-                <td></td>
+                <td>
+                    <a href="/curriculo/Edit?id=@curriculo.Curriculo_id" class="btn btn-info">Editar</a>
+                    <a href="javascript:apagarAluno(@curriculo.Curriculo_id)" class="btn btn-danger">Apagar</a>
+                </td>
                 <td>@curriculo.Curriculo_id</td>
                 <td>@curriculo.Cpf</td>
                 <td>@curriculo.Nome</td>
@@ -30,5 +33,11 @@
         }
     </table>
 </div>
+<script>
+    function apagarAluno(id) {
+        if (confirm('Confirma a exclusão do registro?'))
+            location.href = 'aluno/Delete?id=' + id;
+    }
+</script>
 
 
