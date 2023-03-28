@@ -28,6 +28,7 @@ namespace CadastroCurriculos.Controllers
         {
             try
             {
+                ViewBag.Bd = "I";
                 CurriculoViewModel curriculo = new CurriculoViewModel();
                 CurriculoDAO dao = new CurriculoDAO();
                 curriculo.Curriculo_id = dao.ProximoId();
@@ -39,15 +40,24 @@ namespace CadastroCurriculos.Controllers
             }
         }
 
-        public IActionResult Salvar(CurriculoViewModel curriculo)
+        public IActionResult Salvar(CurriculoViewModel curriculo, string viewBag)
         {
             try
             {
+               
                 CurriculoDAO dao = new CurriculoDAO();
-                curriculo.Curriculo_id = dao.ProximoId();
-                curriculo.Nivel_ingles = Request.Form["NivelIngles"];
-                curriculo.Nivel_espanhol = Request.Form["NivelEspanhol"];
-                dao.Insert(curriculo);
+
+                if (viewBag == "U")
+                {
+                    curriculo.Nivel_ingles = Request.Form["NivelIngles"];
+                    curriculo.Nivel_espanhol = Request.Form["NivelEspanhol"];
+                    dao.Update(curriculo);
+                }
+                else
+                {
+                    curriculo.Curriculo_id = dao.ProximoId();
+                    dao.Insert(curriculo);
+                }
                 return RedirectToAction("index");
             }
             catch (Exception erro)
@@ -60,7 +70,7 @@ namespace CadastroCurriculos.Controllers
         {
             try
             {
-                ViewBag.Operacao = "A";
+                ViewBag.Bd = "U";
                 CurriculoDAO dao = new CurriculoDAO();
                 CurriculoViewModel curriculo = dao.ConsultaId(id);
                 if (curriculo == null)
