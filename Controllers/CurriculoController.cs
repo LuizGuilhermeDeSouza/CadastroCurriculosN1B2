@@ -24,6 +24,19 @@ namespace CadastroCurriculos.Controllers
             }
         }
 
+        public IActionResult Imprimir()
+        {
+            try
+            {
+                CurriculoViewModel curriculo = new CurriculoViewModel();
+                return View("Curriculo", curriculo);
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.ToString()));
+            }
+        }
+
         public IActionResult Create()
         {
             try
