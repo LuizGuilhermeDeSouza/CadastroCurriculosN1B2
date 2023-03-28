@@ -1,0 +1,156 @@
+﻿@model CurriculoViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 class="text-center">Cadastro de Currículos</h2>
+<br />
+<br />
+
+<form action="Salvar" method="post">
+    <div class="form-group">
+        <div>
+            <h3>Dados Pessoais</h3>
+            <br />
+
+            <label for="Curriculo_id" class="control-label">Currículo</label>
+            <input class="form-control disabled" type="number" Name="Curriculo_id" value="@Model.Curriculo_id" readonly />
+            <br />
+
+            <label for="Nome" class="control-label">Nome</label>
+            <input class="form-control" type="text" Name="Nome" value="@Model.Nome" placeholder="Digite o seu nome" />
+            <br />
+
+            <label for="Cpf" class="control-label">CPF</label>
+            <input class="form-control" type="text" Name="Cpf" value="@Model.Cpf" placeholder="Digite o seu CPF" />
+            <br />
+
+            <label for="Telefone" class="control-label">Telefone</label>
+            <input class="form-control" type="text" Name="Telefone" value="@Model.Telefone" placeholder="Digite o seu telefone" />
+            <br />
+
+            <label for="Endereco" class="control-label">Endereço</label>
+            <input class="form-control" type="text" Name="Endereco" value="@Model.Endereco" placeholder="Digite o seu endereço" />
+            <br />
+
+            <label for="Email" class="control-label">Email</label>
+            <input class="form-control" type="text" Name="Email" value="@Model.Email" placeholder="Digite o seu email" />
+            <br />
+
+            <label for="Pretencao_salarial" class="control-label">Pretenção Salarial</label>
+            <input class="form-control" type="number" Name="Pretencao_salarial" value="@Model.Pretencao_salarial" placeholder="Digite a sua pretenção salarial" />
+            <br />
+
+            <label for="Cargo_pretendido" class="control-label">Cargo Pretendido</label>
+            <input class="form-control" type="text" Name="Cargo_pretendido" value="@Model.Cargo_pretendido" placeholder="Digite o cargo pretendido" />
+            <br />
+        </div>
+
+        <br />
+        <br />
+
+        <div>
+            <h3>Formação acadêmica e cursos</h3>
+            <br />
+
+            @for (int n = 0; n < 5; n++)
+            {
+
+                <h5>Formação @n</h5>
+                <br />
+
+                <label class="control-label">Tipo de Formação</label>
+                <input class="form-control" type="text" Name="TipoFormacao_@n" placeholder="Digite o tipo de sua formação" />
+                <br />
+
+                <label class="control-label">Curso</label>
+                <input class="form-control" type="text" Name="Curso_@n" placeholder="Digite o curso" />
+                <br />
+
+                <label class="control-label">Data de Início</label>
+                <input class="form-control" type="date" name="DataInicio_@n" />
+                <br />
+
+                <label class="control-label">Data de Conclusão</label>
+                <input class="form-control" type="date" name="DataConclusao_@n" />
+                <br />
+
+                <br />
+                <br />
+            }
+        </div>
+
+        <br />
+        <br />
+
+        <div>
+            <h3>Experiências Profissionais</h3>
+            <br />
+
+            @for (int n = 0; n < 3; n++)
+            {
+
+                <h5>Experiência Profissional @n</h5>
+                <br />
+
+                <label class="control-label">Empresa</label>
+                <input class="form-control" type="text" Name="Empresa_@n" placeholder="Digite a empresa em que você trabalhou" />
+                <br />
+
+                <label class="control-label">Cargo</label>
+                <input class="form-control" type="text" Name="Cargo_@n" placeholder="Digite o seu cargo nesta empresa" />
+                <br />
+
+                <label class="control-label">Data de Início</label>
+                <input class="form-control" type="date" name="DataInicio_@n" />
+                <br />
+
+                <label class="control-label">Data de Término</label>
+                <input class="form-control" type="date" name="DataTermino_@n" />
+                <br />
+
+                <br />
+                <br />
+            }
+        </div>
+
+        <div>
+            <h3>Idiomas</h3>
+            <br />
+
+            <label class="control-label">Digite o seu nível nos idiomas abaixo:</label>
+            <br />
+            <br />
+
+            <label class="control-label">Inglês:</label>
+            <select name="NivelIngles">
+                <option value="1" selected>Básico</option>
+                <option value="2">Intermediário</option>
+                <option value="3">Avançado</option>
+            </select>
+
+            <br />
+            <br />
+
+            <label class="control-label">Espanhol:</label>
+            <select id="NivelEspanhol" name="NivelEspanhol">
+                <option value="1" selected>Básico</option>
+                <option value="2">Intermediário</option>
+                <option value="3">Avançado</option>
+            </select>
+
+            <br />
+
+            @{ 
+                
+            }
+        </div>
+
+    </div>
+    <br />
+    <input class="btn btn-success" type="submit" value="Salvar Currículo" />
+    <br />
+</form>
+
+
