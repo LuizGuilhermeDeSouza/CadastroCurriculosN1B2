@@ -59,13 +59,10 @@ namespace CadastroCurriculos.Controllers
             {
                
                 CurriculoDAO dao = new CurriculoDAO();
-
+                curriculo.Nivel_ingles = Request.Form["NivelIngles"];
+                curriculo.Nivel_espanhol = Request.Form["NivelEspanhol"];
                 if (viewBag == "U")
-                {
-                    curriculo.Nivel_ingles = Request.Form["NivelIngles"];
-                    curriculo.Nivel_espanhol = Request.Form["NivelEspanhol"];
                     dao.Update(curriculo);
-                }
                 else
                 {
                     curriculo.Curriculo_id = dao.ProximoId();
@@ -95,6 +92,19 @@ namespace CadastroCurriculos.Controllers
             {
                 return View("error",
                     new ErrorViewModel(erro.ToString()));
+            }
+        }
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                CurriculoDAO dao = new CurriculoDAO();
+                dao.Delete(id);
+                return RedirectToAction("index");
+            }
+            catch (Exception erro)
+            {
+                return View("Error", new ErrorViewModel(erro.ToString()));
             }
         }
     }
