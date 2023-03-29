@@ -196,5 +196,23 @@ namespace CadastroCurriculos.DAO
 		nivel_ingles varchar(15),
 		nivel_espanhol varchar(15)
 		);
+
+    INSERT INTO curriculos (curriculo_id, nome, cpf, telefone, endereco, email, pretencao_salarial, cargo_pretendido, formacao_academica_1, formacao_academica_2, formacao_academica_3, formacao_academica_4, formacao_academica_5, experiencia_profissional_1, experiencia_profissional_2, experiencia_profissional_3, nivel_ingles, nivel_espanhol)
+    VALUES (1, 'Maria Silva', '111.111.111-11', '(11) 1111-1111', 'Rua 1, 111', 'maria.silva@gmail.com', 3000.00, 'Analista de Sistemas', 'Bacharelado em Sistemas de Informação', NULL, NULL, NULL, NULL, 'Desenvolvedora Java na Empresa X', NULL, NULL, 'Avançado', 'Intermediário');
+
+    INSERT INTO curriculos (curriculo_id, nome, cpf, telefone, endereco, email, pretencao_salarial, cargo_pretendido, formacao_academica_1, formacao_academica_2, formacao_academica_3, formacao_academica_4, formacao_academica_5, experiencia_profissional_1, experiencia_profissional_2, experiencia_profissional_3, nivel_ingles, nivel_espanhol)
+    VALUES (2, 'João Santos', '222.222.222-22', '(22) 2222-2222', 'Rua 2, 222', 'joao.santos@gmail.com', 2500.00, 'Desenvolvedor Front-end', 'Bacharelado em Ciência da Computação', 'Técnico em Design Gráfico', NULL, NULL,NULL, 'Desenvolvedor Front-end na Empresa Y', NULL, NULL, 'Intermediário', 'Básico');
+
+    INSERT INTO curriculos (curriculo_id, nome, cpf, telefone, endereco, email, pretencao_salarial, cargo_pretendido, formacao_academica_1, formacao_academica_2, formacao_academica_3, formacao_academica_4, formacao_academica_5, experiencia_profissional_1, experiencia_profissional_2, experiencia_profissional_3, nivel_ingles, nivel_espanhol)
+    VALUES (3, 'Fernanda Souza', '333.333.333-33', '(33) 3333-3333', 'Rua 3, 333', 'fernanda.souza@gmail.com', 4000.00, 'Gerente de Projetos', 'MBA em Gestão de Projetos', 'Bacharelado em Administração', NULL, NULL, NULL,'Gerente de Projetos na Empresa Z', NULL, NULL, 'Avançado', 'Intermediário');
+    NSERT INTO curriculos (curriculo_id, nome, cpf, telefone, endereco, email, pretencao_salarial, cargo_pretendido, formacao_academica_1, formacao_academica_2, formacao_academica_3, experiencia_profissional_1, experiencia_profissional_2, experiencia_profissional_3, nivel_ingles, nivel_espanhol)
+    VALUES (4, 'Pedro Souza', '456.789.123-00', '(31) 7777-7777', 'Rua C, 789', 'pedro.souza@email.com',
+        6000.00, 'Gerente de Projetos', 'Bacharelado em Engenharia de Produção', 'MBA em Gestão de Projetos', null,
+        'Coordenador de Projetos na Empresa W por 5 anos', 'Gerente de Projetos na Empresa V por 3 anos', 'Consultor de Projetos na Empresa U por 2 anos', 'Avançado', 'Avançado');
+    INSERT INTO curriculos (curriculo_id, nome, cpf, telefone, endereco, email, pretencao_salarial, cargo_pretendido, formacao_academica_1, formacao_academica_2, experiencia_profissional_1, experiencia_profissional_2, experiencia_profissional_3, nivel_ingles, nivel_espanhol)
+    VALUES (5, 'Ana Oliveira', '789.123.456-00', '(19) 5555-5555', 'Rua D, 321', 'ana.oliveira@email.com',
+        3500.00, 'Assistente Administrativo', 'Técnico em Administração', 'Graduação em Administração',
+        'Assistente Administrativo na Empresa A por 2 anos', 'Estagiária de Administração na Empresa B por 1 ano', 'Auxiliar Administrativo na Empresa C por 1 ano', 'Básico', 'Básico');
+
     */
 }

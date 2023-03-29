@@ -3,14 +3,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/rodape.css">
+</head>
 <div>
+
     <h2>Listagem de Currículos</h2>
     <br />
     <a href="/curriculo/create" class="btn btn-primary" role="button">Novo Curriculo</a>
     <br />
     <br />
     <br />
-    <table class="table table-responsive">
+    <table class="table table-hover table-dark">
         <tr>
             <th>Ações</th>
             <th>Currículo</th>
@@ -22,9 +26,9 @@
         {
             <tr>
                 <td>
-                    <a href="/curriculo/imprimir?id=@curriculo.Curriculo_id" class="btn btn-secondary" role="button">Imprimir Curriculo</a>
-                    <a href="/curriculo/Edit?id=@curriculo.Curriculo_id" class="btn btn-info">Editar</a>
-                    <a href="javascript:apagarAluno(@curriculo.Curriculo_id)" class="btn btn-danger">Apagar</a>
+                    <a href="/curriculo/imprimir?id=@curriculo.Curriculo_id" class="btn btn-outline-light   " role="button">Visualizar</a>
+                    <a href="/curriculo/Edit?id=@curriculo.Curriculo_id" class="btn btn-outline-primary">Editar</a>
+                    <a href="javascript:apagarAluno(@curriculo.Curriculo_id)" class="btn btn-outline-danger">Apagar</a>
                 </td>
                 <td>@curriculo.Curriculo_id</td>
                 <td>@curriculo.Cpf</td>
@@ -33,6 +37,16 @@
         }
     </table>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+  <div id="rodape">
+    <img src="~/img/logo.jpg">
+            &copy; Copyright Faculdade Tecnologia Salvador Arena
+  </div>
 <script>
     function apagarAluno(id) {
         if (confirm('Confirma a exclusão do registro?'))

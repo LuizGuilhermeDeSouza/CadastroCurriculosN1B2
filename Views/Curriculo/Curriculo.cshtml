@@ -7,6 +7,8 @@
 <head>
     <title>Curriculo</title>
     <link rel="stylesheet" type="text/css" href="~/css/styleCurriculo.css">
+    <link rel="stylesheet" type="text/css" href="~/css/rodape.css">
+
 </head>
 
 <body>
@@ -72,12 +74,26 @@
         <p><label>Espanhol</label>@Model.Nivel_espanhol</p>
     </div>
 </body>
-<button id="imprimir" class="btn btn-success" onclick="imprimirTela()">Gerar PDF</button>
+<br />
+<div id="imprimir">
+    <p class="text-info">  
+    <button class="btn btn-outline-success" onclick="imprimirTela()">Imprimir</button>
+        <a href="/curriculo/index" class="btn btn-primary float-right" role="button">Voltar</a>
+    </p>
+</div>
+<br /><br/><br/><br /><br/><br/>
+<div id="rodape">
+    <img src="~/img/logo.jpg">
+    &copy; Copyright Faculdade Tecnologia Salvador Arena
+</div>
 <script>
     function imprimirTela() {
         document.getElementById('imprimir').style.visibility = 'hidden';
+        document.getElementById('rodape').style.visibility = 'hidden';
         window.print();
         document.getElementById('imprimir').style.visibility = 'visible';
+        document.getElementById('rodape').style.visibility = 'visible';
+
     }
 </script>
 
