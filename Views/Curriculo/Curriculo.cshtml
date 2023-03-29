@@ -72,5 +72,12 @@
         <p><label>Espanhol</label>@Model.Nivel_espanhol</p>
     </div>
 </body>
-
+<button id="imprimir" class="btn btn-success" onclick="imprimirTela()">Gerar PDF</button>
+<script>
+    function imprimirTela() {
+        document.getElementById('imprimir').style.visibility = 'hidden';
+        window.print();
+        document.getElementById('imprimir').style.visibility = 'visible';
+    }
+</script>
 
