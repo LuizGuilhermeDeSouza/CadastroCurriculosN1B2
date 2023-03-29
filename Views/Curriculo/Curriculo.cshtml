@@ -10,52 +10,66 @@
 </head>
 
 <body>
-    <h1>Curriculo Vitae</h1>
+    <h1>@Model.Nome</h1>
 
     <div class="secao">
         <h2>Dados Pessoais</h2>
-        <div id="hcard-Ademir-Mazer-Jr" class="vcard">
-            <span class="given-name">Ademir</span>
-            <span class="additional-name">Mazer</span>
-            <span class="family-name">Jr</span>
-
-            <a class="email" href="mailto:ademir.mazer.jr@gmail.com">ademir.mazer.jr@gmail.com</a>
-            <a class="url" href="http://ademir.winponta.com.br">http://ademir.winponta.com.br</a>
-
-            <div class="adr">
-                <span class="locality">Ponta Grossa</span>
-                ,
-                <span class="region">Paraná</span>
-
-            </div>
+        <div id="cardCurriculo" class="vcard">
+            <br>
+            <p><label>CPF</label>@Model.Cpf</p>
+            <p><label>Telefone</label>@Model.Telefone</p>
+            <p><label>Email</label>@Model.Email</p>
+            <p><label>Endereço</label>@Model.Endereco</p>
+            <p><label>Pretensão Salarial</label>@Model.Pretencao_salarial.ToString("C")</p>
         </div>
     </div>
-
+    <br>
     <div class="secao">
-        <h2>Dados Profissionais</h2>
+        <h2>Formação acadêmica e cursos</h2><br>
 
-        <p><label>Empresa</label>UTFPR</p>
-        <p><label>Empresa</label>Copel</p>
-        <p><label>Empresa</label>Winponta</p>
+        <p><label>Formação acadêmica 1</label>@Model.Formacao_academica_1</p>
+        @if (@Model.Formacao_academica_2 != null)
+        {
+            <p><label>Formação acadêmica 2</label>@Model.Formacao_academica_2</p>
+        }
+
+        @if (@Model.Formacao_academica_3 != null)
+        {
+            <p><label>Formação acadêmica 2</label>@Model.Formacao_academica_3</p>
+        }
+
+        @if (@Model.Formacao_academica_4 != null)
+        {
+            <p><label>Formação acadêmica 2</label>@Model.Formacao_academica_4</p>
+        }
+
+        @if (@Model.Formacao_academica_5 != null)
+        {
+            <p><label>Formação acadêmica 2</label>@Model.Formacao_academica_5</p>
+        }
     </div>
 
     <div class="secao">
-        <h2>Formação</h2>
+        <h2>Experiências Profissionais</h2><br>
 
-        <p><label>Curso</label>Especialista Linguagem Java</p>
-        <p><label>Curso</label>Especialista Ciências da Computação</p>
-        <p><label>Curso</label>Bacharel Informática</p>
+        <p><label>Experiencia Profissional 1</label>@Model.Experiencia_profissional_1</p>
+
+        @if (@Model.Experiencia_profissional_2 != null)
+        {
+            <p><label>Experiencia Profissional 2</label>@Model.Experiencia_profissional_2</p>
+        }
+
+        @if (@Model.Experiencia_profissional_3 != null)
+        {
+            <p><label>Experiencia Profissional 3</label>@Model.Experiencia_profissional_3</p>
+        }
     </div>
 
     <div class="secao">
-        <h2>Idiomas</h2>
+        <h2>Idiomas</h2><br>
 
-        <p><label>Inglês</label>Avançado</p>
-        <p><label>Espanhol</label>Avançado</p>
-    </div>
-
-    <div id="footnote">
-
+        <p><label>Inglês</label>@Model.Nivel_ingles</p>
+        <p><label>Espanhol</label>@Model.Nivel_espanhol</p>
     </div>
 </body>
 
