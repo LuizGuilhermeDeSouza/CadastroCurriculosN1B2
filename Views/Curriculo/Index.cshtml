@@ -6,7 +6,6 @@
 <div>
     <h2>Listagem de Currículos</h2>
     <br />
-    <a href="/curriculo/imprimir" class="btn btn-secondary" role="button">Imprimir Curriculo</a>
     <a href="/curriculo/create" class="btn btn-primary" role="button">Novo Curriculo</a>
     <br />
     <br />
@@ -23,6 +22,7 @@
         {
             <tr>
                 <td>
+                    <a href="/curriculo/imprimir?id=@curriculo.Curriculo_id" class="btn btn-secondary" role="button">Imprimir Curriculo</a>
                     <a href="/curriculo/Edit?id=@curriculo.Curriculo_id" class="btn btn-info">Editar</a>
                     <a href="javascript:apagarAluno(@curriculo.Curriculo_id)" class="btn btn-danger">Apagar</a>
                 </td>

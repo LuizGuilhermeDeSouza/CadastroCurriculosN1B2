@@ -24,12 +24,16 @@ namespace CadastroCurriculos.Controllers
             }
         }
 
-        public IActionResult Imprimir()
+        public IActionResult Imprimir(int id)
         {
             try
             {
-                CurriculoViewModel curriculo = new CurriculoViewModel();
-                return View("Curriculo", curriculo);
+                CurriculoDAO dao = new CurriculoDAO();
+                CurriculoViewModel curriculo = dao.ConsultaId(id);
+                if (curriculo == null)
+                    return RedirectToAction("index");
+                else
+                    return View("Curriculo", curriculo);
             }
             catch (Exception erro)
             {
