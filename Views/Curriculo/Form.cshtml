@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/rodape.css">
+</head>
 <h2 class="text-center">Cadastro de Currículos</h2>
 <br />
 <br />
@@ -15,7 +17,7 @@
         <div>
             <h3>Dados Pessoais</h3>
             <br />
-
+            
             <label for="Curriculo_id" class="control-label">Currículo</label>
             <input class="form-control disabled" type="number" Name="Curriculo_id" value="@Model.Curriculo_id" readonly />
             <br />
@@ -27,25 +29,41 @@
             <label for="Cpf" class="control-label">CPF</label>
             <input class="form-control" type="text" Name="Cpf" value="@Model.Cpf" placeholder="Digite o seu CPF" />
             <br />
+            <table class="table table-sm">
+                <tr>
+                    <th>Contatos</th>
+                    <th>Pretensão</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Telefone" class="control-label">Telefone</label>
+                        <input class="form-control" type="text" Name="Telefone" value="@Model.Telefone" placeholder="Digite o seu telefone" />
+                    </td>
+                    <td>
+                        <label for="Pretencao_salarial" class="control-label">Pretenção Salarial</label>
+                        <input class="form-control" type="number" Name="Pretencao_salarial" value="@Model.Pretencao_salarial" placeholder="Digite a sua pretenção salarial" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Endereco" class="control-label">Endereço</label>
+                        <input class="form-control" type="text" Name="Endereco" value="@Model.Endereco" placeholder="Digite o seu endereço" />
+                    </td>
+                    <td>
+                        <label for="Cargo_pretendido" class="control-label">Cargo Pretendido</label>
+                        <input class="form-control" type="text" Name="Cargo_pretendido" value="@Model.Cargo_pretendido" placeholder="Digite o cargo pretendido" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="Email" class="control-label">Email</label>
+                        <input class="form-control" type="text" Name="Email" value="@Model.Email" placeholder="Digite o seu email" />
+                     </td>
+                </tr>
+            </table>
 
-            <label for="Telefone" class="control-label">Telefone</label>
-            <input class="form-control" type="text" Name="Telefone" value="@Model.Telefone" placeholder="Digite o seu telefone" />
-            <br />
-
-            <label for="Endereco" class="control-label">Endereço</label>
-            <input class="form-control" type="text" Name="Endereco" value="@Model.Endereco" placeholder="Digite o seu endereço" />
-            <br />
-
-            <label for="Email" class="control-label">Email</label>
-            <input class="form-control" type="text" Name="Email" value="@Model.Email" placeholder="Digite o seu email" />
-            <br />
-
-            <label for="Pretencao_salarial" class="control-label">Pretenção Salarial</label>
-            <input class="form-control" type="number" Name="Pretencao_salarial" value="@Model.Pretencao_salarial" placeholder="Digite a sua pretenção salarial" />
-            <br />
-
-            <label for="Cargo_pretendido" class="control-label">Cargo Pretendido</label>
-            <input class="form-control" type="text" Name="Cargo_pretendido" value="@Model.Cargo_pretendido" placeholder="Digite o cargo pretendido" />
+            
+            
             <br />
         </div>
 
@@ -79,9 +97,6 @@
             <h3>Experiências Profissionais</h3>
             <br />
             <h3>Cite as 3 últimas ou menos</h3>
-            
-
-                <h5>Experiência Profissional </h5>
                 <br />
 
             <label class="control-label">Experiencia Profissional 1</label>
@@ -101,36 +116,42 @@
         </div>
 
         <div>
-            <h3>Idiomas</h3>
-            <br />
-
-            <label class="control-label">Digite o seu nível nos idiomas abaixo:</label>
-            <br />
-            <br />
-
-            <label class="control-label">Inglês:</label>
-            <select id="NivelIngles" name="NivelIngles">
-                <option value="Básico" selected>Básico</option>
-                <option value="Intermediário">Intermediário</option>
-                <option value="Avançado">Avançado</option>
-            </select>
-
-            <br />
-            <br />
-
-            <label class="control-label">Espanhol:</label>
-            <select id="NivelEspanhol" name="NivelEspanhol" >
-                <option value="Básico" selected>Básico</option>
-                <option value="Intermediário">Intermediário</option>
-                <option value="Avançado">Avançado</option>
-            </select>
-            <br />
+            <table class="table table-sm">
+                <tr>
+                    <th>Idiomas</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                         <label class="control-label">Inglês:</label>
+                        <select id="NivelIngles" name="NivelIngles">
+                            <option value="Básico" selected>Básico</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                    </td>
+                    <td>
+                        <label class="control-label">Espanhol:</label>
+                        <select id="NivelEspanhol" name="NivelEspanhol">
+                            <option value="Básico" selected>Básico</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
         </div>
 
     </div>
-    <br />
     <input class="btn btn-success" type="submit" value="Salvar Currículo" />
-    <br />
+    <a href="/curriculo/index" class="btn btn-primary float-right" role="button">Voltar</a>
+    <br /><br /><br /><br /><br /><br />
+
+    <div id="rodape">
+        <img src="~/img/logo.jpg">
+        &copy; Copyright Faculdade Tecnologia Salvador Arena
+    </div>
+
 
 </form>
 

@@ -111,5 +111,6 @@ namespace CadastroCurriculos.Controllers
                 return View("Error", new ErrorViewModel(erro.ToString()));
             }
         }
+      
     }
 }
